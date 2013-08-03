@@ -1,0 +1,13 @@
+{% if zapisnik_list %}
+    <ul>
+        {% for zapisnik in zapisnik_list %}
+        <li><a href="{% url 'zapisnici:zapisnik' zapisnik.id %}">{{ zapisnik.zap_date }}</a></li>
+            <p>{{ zapisnik.zap_sadrzaj }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Trenutno nema zapisnika.</p>
+{% endif %}
+
+    

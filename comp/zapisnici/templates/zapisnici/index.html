@@ -6,6 +6,25 @@
         </li>
         {% endfor %}
     </ul>
+
+    {% if is_paginated %}
+        </br>
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}"><<</a>
+                {% endif %}
+                <span class="page-current">
+                     Stranica {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+                </span>
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">>></a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+
+
 {% else %}
     <p>Trenutno nema zapisnika.</p>
 {% endif %}

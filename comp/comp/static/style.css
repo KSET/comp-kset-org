@@ -12,6 +12,10 @@ a {
     cursor: pointer;
 }
 
+a:link {
+        color: #551A8B; 
+}
+
 li {
     list-style: none;
 }
@@ -82,7 +86,9 @@ p img {
 #menu ul li a{
     padding: 5px;
     width:100%;
+    text-decoration:none;
 }
+
 
 #menu ul li:hover {
 

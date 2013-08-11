@@ -7,7 +7,8 @@
     <ul>
         {% for zapisnik in zapisnik_list %}
         <li><a href="{% url 'zapisnici:zapisnik' zapisnik.id %}">{{ zapisnik.zap_date }}</a></li>
-            <p>{{ zapisnik.zap_sadrzaj }}</p>
+            <p><strong> Prisutni: </strong> {{ zapisnik.prisutni|truncatewords:"5" }} 
+            <p><strong> Sadržaj: </strong>{{ zapisnik.zap_sadrzaj|truncatewords:"40" }}</p>
         </li>
         {% endfor %}
     </ul>

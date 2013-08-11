@@ -3,11 +3,12 @@
 {% block title %} Zapisnik {{ zapisnik.zap_date }} {% endblock %}
 
 {% block content %}
-<h1>{{ zapisnik.zap_date }} </h1>
+
+<h1>Zapisnik sastanka {{ zapisnik.zap_date }} </h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <p><strong>Prisutni:</strong> {{ zapisnik.prisutni }}</p>
 
-<p> {{ zapisnik.zap_sadrzaj }} </p>
+<p><strong> Sadržaj: </strong> {{ zapisnik.zap_sadrzaj }} </p>
 {% endblock %}

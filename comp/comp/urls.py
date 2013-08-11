@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^zapisnici/', include('zapisnici.urls', namespace="zapisnici")),
+    url(r'^tinymce/', include('tinymce.urls')),
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',

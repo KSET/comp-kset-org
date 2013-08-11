@@ -1,3 +1,8 @@
+{% extends 'base.html' %}
+
+{% block title %} Zapisnici {% endblock %}
+
+{% block content %}
 {% if zapisnik_list %}
     <ul>
         {% for zapisnik in zapisnik_list %}
@@ -8,10 +13,10 @@
     </ul>
 
     {% if is_paginated %}
+        </br>
         <div class="pagination">
             <span class="page-links">
                 {% if page_obj.has_previous %}
-                </br>
                 <a href="?page={{ page_obj.previous_page_number }}"><<</a>
                 {% endif %}
                 <span class="page-current">
@@ -28,5 +33,6 @@
 {% else %}
     <p>Trenutno nema zapisnika.</p>
 {% endif %}
+{% endblock %}
 
     

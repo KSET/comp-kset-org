@@ -5,7 +5,6 @@ from django.views import generic
 from django.utils import timezone
 
 class IndexView(generic.ListView):
-    template_name = 'zapisnici/index.html'
     paginate_by = 10
 
     def get_queryset(self):

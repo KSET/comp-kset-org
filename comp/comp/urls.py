@@ -14,3 +14,8 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^zapisnici/', include('zapisnici.urls', namespace="zapisnici")),
 )
+
+urlpatterns += patterns('django.contrib.flatpages.views',
+    url(r'^$', 'flatpage', {'url': '/'}, name='comp_home'), 
+    url(r'^kontakt/$', 'flatpage', {'url': '/kontakt/'}, name='comp_kontakt'), 
+)

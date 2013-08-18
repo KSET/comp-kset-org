@@ -5,6 +5,7 @@ class Zapisnik(models.Model):
     zap_date = models.DateTimeField('datum zapisnika')
     zap_sadrzaj = models.TextField('sadrzaj zapisnika')
     prisutni = models.TextField('prisutni')
+    mail_notifikacija = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.zap_sadrzaj # Promijeniti u nesto pametnije

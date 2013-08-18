@@ -8,7 +8,7 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<p><strong>Prisutni:</strong> {{ zapisnik.prisutni }}</p>
+<p><strong>Prisutni:</strong> {{ zapisnik.prisutni|safe }}</p>
 
-<p><strong> Sadržaj: </strong> {{ zapisnik.zap_sadrzaj }} </p>
+<p><strong> Sadržaj: </strong> {{ zapisnik.zap_sadrzaj|safe }} </p>
 {% endblock %}

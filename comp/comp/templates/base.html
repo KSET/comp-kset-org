@@ -7,6 +7,17 @@
                 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
         </head>
         <body>
+                <div id="user">
+                        {% if user.is_authenticated %}
+                        {{ user.username }} (<a href="{% url 'auth_logout' %}?next={% firstof request.path '/' %}">logout</a>)
+                        {% if user.is_superuser %}
+                        <a href="{% url 'admin:index' %}"> admin panel </a>
+                        {% endif %}
+                        {% else %}
+                        <a href="{% url 'auth_login' %}?next={% firstof request.path '/' %}"> login </a>
+                        {% endif %}
+                </div>
+                        
 
                 <div id="header">
 <pre>
@@ -43,7 +54,7 @@
                         </div>
                         <div id="footer">
                                 comp@kset.org Freeeendeeeeeee!!!
-                                <br> &copy 2012
+                                <br> &copy {% now 'Y' %} 
                         </div>
                 </div>
         </body>

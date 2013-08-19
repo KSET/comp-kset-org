@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Login
+{% endblock %}
+
+{% block content %}
+<p>user@host:~$ ssh comp.kset.org</p>
+{% comment %} <p>comp@kset.org:~$ ssh comp.kset.org</p> {% endcomment %}
+
+<form method="post" action="{% url 'auth_login' %}" id="login-form">
+        {% csrf_token %}
+        <table>
+                <tr>
+                        <td>username:</td>
+                        <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                        <td>password:</td>
+                        <td>{{ form.password }}</td>
+                </tr>
+        </table>
+
+        <input type="submit" value="login"/>
+        <input type="hidden" name="next" value="{% firstof next '/' %}" /> 
+</form>
+
+{% if form.errors %}
+<p>Permission denied, please try again.</p>
+{% endif %}
+
+{% endblock %}

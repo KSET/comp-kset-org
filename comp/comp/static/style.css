@@ -36,9 +36,54 @@ p img {
     padding: 0px;
 }
 
+#login-form input[type="text"], input[type="password"] {
+    font-family:     "Courier New",
+                    Courier,
+                    monospace;
+    background: transparent;
+    color: #FFF;
+    border: 1px dashed #FFF;
+    font-size: 16px;
+
+}
+
+#login-form input[type="submit"] {
+    font-family:     "Courier New",
+                    Courier,
+                    monospace;
+    background: transparent;
+    color: #FFF;
+    border: 1px solid #FFF;
+    font-size: 16px;
+
+}
+
+
+
+#user {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 16px;
+    margin-bottom: 0px;
+    padding-left: 68%;
+    text-align: center;
+}
+
+#user a {
+    text-decoration:none;
+}
+
+.zapisnik {
+    border-bottom: 2px dashed #FFF;
+    margin-top: 8px;
+    margin-bottom: auto;
+}
+
+
+
 #header {
     width: 1064px;
-        margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
     
 }

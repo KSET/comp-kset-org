@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} Zapisnici {% endblock %}
+
+{% block content %}
+{% if minutes_list %}
+    <ul>
+        {% for minutes in minutes_list %}
+        <li class="minutes"><a href="{% url 'minutes:minutes' minutes.id minutes.slug  %}">{{ minutes.date }}</a>
+        <p><strong> Prisutni: </strong> {{ minutes.members_present|truncatewords_html:5|safe }}</p>
+        <p><strong> Sadržaj: </strong>{{ minutes.content|truncatewords_html:40|safe }}</p
+       </li>
+        {% endfor %}
+    </ul>
+
+        <br>
+        <div class="pagination">
+            <span class="page-links">
+                {% if minutes_list.has_previous %}
+                <a href="?page={{ minutes_list.previous_page_number }}"><<</a>
+                {% endif %}
+                <span class="page-current">
+                     Stranica {{ minutes_list.number }} / {{ minutes_list.paginator.num_pages }}
+                </span>
+                {% if minutes_list.has_next %}
+                <a href="?page={{ minutes_list.next_page_number }}">>></a>
+                {% endif %}
+            </span>
+        </div>
+
+
+{% else %}
+    <p>Trenutno nema zapisnika.</p>
+{% endif %}
+{% endblock %}
+
+    

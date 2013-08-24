@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Vijesti {% endblock %}
+
+{% block content %}
+{% if news_list %}
+<ul>
+        {% for news in news_list %}
+        <li class="news">
+                <a href="{% url 'news:news' news.id news.slug %}"><h2>{{ news.title }}</h2></a>
+                <span class="subtitle"> {{ news.author }}, {{ news.date }} </span>
+                <span class="content">{{ news.body|truncatewords_html:"40"|safe }} </span>
+        </li>
+        {% endfor %}
+</ul>
+</br>
+<div class="pagination">
+        <span class="page-links">
+                {% if news_list.has_previous %}
+                <a href="?page={{ news_list.previous_page_number }}"><<</a>
+                {% endif %}
+                <span class="page-current">
+                        Stranica {{ news_list.number }} / {{ news_list.paginator.num_pages }}
+                </span>
+                {% if news_list.has_next %}
+                <a href="?page={{ news_list.next_page_number }}">>></a>
+                {% endif %}
+        </span>
+</div>
+
+{% else %}
+<p>Trenutno nema vijesti.</p>
+{% endif %}
+{% endblock %}
+
+

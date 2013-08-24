@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Zapisnik sastanka {{ minutes.date }} {% endblock %}
+
+{% block content %}
+
+<h1>Zapisnik sastanka {{ minutes.date }} </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<p><strong>Prisutni:</strong> {{ minutes.members_present|safe }}</p>
+
+<p><strong> Sadržaj: </strong> {{ minutes.content|safe }} </p>
+{% endblock %}

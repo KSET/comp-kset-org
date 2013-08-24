@@ -1,23 +1,21 @@
 from django.conf.urls import patterns, include, url
-from utility.views import redirect_if_logged_in
-from django.contrib.auth.views import login
-
+from utils.views import login
 from django.contrib import admin
+from django.conf import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'comp.views.home', name='home'),
-    # url(r'^comp/', include('comp.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^zapisnici/', include('zapisnici.urls', namespace="zapisnici")),
+    url(r'^zapisnici/', include('minutes.urls', namespace="minutes")),
+    url(r'^vijesti/', include('news.urls', namespace="news")),
     url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^login/$', redirect_if_logged_in(login), {'template_name': 'login.html'}, name='auth_login'),
-    url(r'^logout/$', 'django.contrib.auth.views.logout', name='auth_logout'),
+    url(r'^login/$', login, name='login'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout', name='logout'),
+)
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+            (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 )
 
 urlpatterns += patterns('django.contrib.flatpages.views',

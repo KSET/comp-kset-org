@@ -1,0 +1,3 @@
+Prisutni: {{ members_present|striptags }}
+
+Zapisnik: {{ content|striptags }}

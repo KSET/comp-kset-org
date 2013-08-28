@@ -13,7 +13,7 @@ class Minutes(models.Model):
     mail_notification = models.BooleanField(default=False)
 
     def __unicode__(self):
-        return self.content[:64]
+        return self.date.strftime('%d-%m-%Y')
 
     class Meta:
         verbose_name_plural = "minutes"

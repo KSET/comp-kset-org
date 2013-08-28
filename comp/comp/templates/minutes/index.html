@@ -6,7 +6,7 @@
 {% if minutes_list %}
     <ul>
         {% for minutes in minutes_list %}
-        <li class="minutes"><a href="{% url 'minutes:minutes' minutes.id minutes.slug  %}">{{ minutes.date }}</a>
+        <li class="minutes"><a href="{% url 'minutes:details' minutes.id minutes.slug  %}">{{ minutes.date }}</a>
         <p><strong> Prisutni: </strong> {{ minutes.members_present|truncatewords_html:5|safe }}</p>
         <p><strong> Sadržaj: </strong>{{ minutes.content|truncatewords_html:40|safe }}</p
        </li>

@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from minutes.models import Minutes
 
 @login_required
-def index(request):
+def minutes_index(request):
     template = 'minutes/index.html'
     minutes_list = Minutes.objects.order_by('-date')
     paginator = Paginator(minutes_list, 10)
@@ -19,7 +19,7 @@ def index(request):
     return render(request, template, {'minutes_list': minutes})
 
 @login_required
-def detail(request, pk, slug):
+def minutes_detail(request, pk, slug):
     context = {'minutes': get_object_or_404(Minutes, pk=pk)}
     template = 'minutes/detail.html'
     return render(request, template, context)

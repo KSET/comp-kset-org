@@ -6,3 +6,4 @@
 comp/comp/settings/prod.py
 comp/comp/settings/local.py
 comp/comp/settings/secret.py
+comp/local_fabfile.py

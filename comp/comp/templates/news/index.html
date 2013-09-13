@@ -7,7 +7,7 @@
 <ul>
         {% for news in news_list %}
         <li class="news">
-                <a href="{% url 'news:news' news.id news.slug %}"><h2>{{ news.title }}</h2></a>
+                <a href="{% url 'news:details' news.id news.slug %}"><h2>{{ news.title }}</h2></a>
                 <span class="subtitle"> {{ news.author }}, {{ news.date }} </span>
                 <span class="content">{{ news.body|truncatewords_html:"40"|safe }} </span>
         </li>

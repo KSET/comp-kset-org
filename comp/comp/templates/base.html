@@ -4,9 +4,9 @@
         <head>
                 <meta charset=utf-8">
                 <meta name="description" content="Stranice računarske sekcije KSET-a">
-                <title>{% block title %}comp.kset.org {% endblock %}</title>
+                <title>{% block title %}Računarska sekcija KSET-a{% endblock %}</title>
                 <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
-                <link rel="icon" type="image/png" href="/media/images/favicon.png">
+                <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
         </head>
         <body>
                 <div id="user">
@@ -43,10 +43,10 @@
                         <div id="content">
                                 <nav id="menu">
                                         <ul>
-                                                <a href='/'><li>127.0.0.1</li></a>
-                                                <a href='/vijesti/'><li>vijesti</li></a>
-                                                <a href='/zapisnici/'><li>zapisnici</li></a>
-                                                <a href='/kontakt/'><li>kontakt</li></a>
+                                                <a href="{% url 'comp_home' %}"><li>127.0.0.1</li></a>
+                                                <a href="{% url 'news:index' %}"><li>vijesti</li></a>
+                                                <a href="{% url 'minutes:index' %}"><li>zapisnici</li></a>
+                                                <a href="{% url 'comp_contact' %}"><li>kontakt</li></a>
                                         </ul>   
                                 </nav>
                                 <article id="article">

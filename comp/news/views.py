@@ -2,7 +2,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404
 from models import News 
 
-def index(request):
+def news_index(request):
     template = 'news/index.html'
     news_list = News.objects.order_by('-date')
     paginator = Paginator(news_list, 10)
@@ -16,7 +16,7 @@ def index(request):
 
     return render(request, template, {'news_list': news})
 
-def detail(request, pk, slug):
+def news_detail(request, pk, slug):
     context = {'news': get_object_or_404(News, pk=pk)}
     template = 'news/detail.html'
     return render(request, template, context)

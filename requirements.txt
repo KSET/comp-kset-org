@@ -1,4 +1,4 @@
-Django==1.5.1
+Django==1.11.29
 South==0.8.2
 django-auth-ldap==1.1.4
 django-tinymce==1.5.1
